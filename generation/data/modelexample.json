@@ -1,0 +1,12 @@
+[
+    {
+        "property1": "A",
+        "property2": "B",
+        "property3": 2
+    },
+    {
+        "property1": "C",
+        "property2": "D",
+        "property3": 5
+    }
+]
