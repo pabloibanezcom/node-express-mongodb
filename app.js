@@ -10,7 +10,9 @@ const session = require('express-session');
 require('dotenv').load();
 require('./app/passport/passport')(passport); 
 const mongoose = require('./app/mongoose.js');
+const util = require('./app/services/util.service');
 const app = express();
+const modelDefinitions = util.getModelDefinitions();
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -26,6 +28,6 @@ app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(flash()); 
 
-require('./app/routes.js')(app, passport);
+require('./app/routes.js')(app, passport, modelDefinitions);
 
 module.exports = app;

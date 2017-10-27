@@ -1,4 +1,3 @@
-const http = require("http");
 const userService = require('../services/user.service');
 
 module.exports = (app, passport) => {

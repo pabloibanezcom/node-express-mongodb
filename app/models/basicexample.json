@@ -1,0 +1,28 @@
+{
+    "name": "BasicExample",
+    "route": "basicexample",
+    "properties": {
+        "property1": {
+            "type": "String"
+        },
+        "property2": {
+            "type": "String",
+            "methodsNotAllowed": {
+                "update": true
+            }
+        },
+        "property3": {
+            "type": "Number",
+            "methodsNotAllowed": {
+                "add": true
+            }
+        }
+    },
+    "methods": {
+        "getAll": true,
+        "get": true,
+        "add": true,
+        "update": true,
+        "remove": true
+    }
+}
