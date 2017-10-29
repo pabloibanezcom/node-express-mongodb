@@ -1,0 +1,19 @@
+{
+    "name": "AdvancedExample",
+    "route": "advancedexample",
+    "properties": {
+        "property45": {
+            "type": "String"
+        },
+        "property27": {
+            "type": "String"
+        },
+        "property12": {
+            "type": "Number"
+        }
+    },
+    "methods": {
+        "getAll": true,
+        "get": true
+    }
+}

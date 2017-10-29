@@ -20,7 +20,7 @@ module.exports = (app, passport, modelDefinition, model) => {
     }
 
     methods.get = () => {
-        const url = urlBase;
+        const url = urlBase + '/:id';
         app.get(url,
             // passport.authenticate('admin'),
             (req, res) => {

@@ -25,9 +25,11 @@ generationService.guid = () => {
 }
 
 const populate = (model, modelDefinition) => {
-    const data = require('./data/' + modelDefinition.route);
-    const createFunction = require(utilService.checkFile('./generation/', './creation/' + modelDefinition.route + '.js', './creation/default'));
     return new Promise((resolve, reject) => {
+        const dataPath = utilService.checkFile('./generation/', './data/' + modelDefinition.route + '.json', null);
+        if (!dataPath) { resolve(); }
+        const data = require(dataPath);
+        const createFunction = require(utilService.checkFile('./generation/', './creation/' + modelDefinition.route + '.js', './creation/default'));
         model.remove({})
             .then(res => {
                 let counter = 0;
