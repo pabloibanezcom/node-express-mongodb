@@ -16,7 +16,7 @@ module.exports = (app, passport, modelDefinition, model) => {
                     .then(collection => res.send(collection))
                     .catch(error => console.log(error));
             });
-        routesService.storeRoute({ model: modelDefinition.name, method: 'GET', url: url });
+        routesService.storeRoute({ model: modelDefinition.name, name: 'GetAll', method: 'GET', url: url });
     }
 
     methods.get = () => {
@@ -28,7 +28,7 @@ module.exports = (app, passport, modelDefinition, model) => {
                     .then(obj => res.send(obj))
                     .catch(error => console.log(error));
             });
-        routesService.storeRoute({ model: modelDefinition.name, method: 'GET', url: url });
+        routesService.storeRoute({ model: modelDefinition.name, name: 'Get', method: 'GET', url: url });
     }
 
     methods.add = () => {
@@ -40,7 +40,7 @@ module.exports = (app, passport, modelDefinition, model) => {
                     .then(obj => res.send(obj))
                     .catch(error => console.log(error));
             });
-        routesService.storeRoute({ model: modelDefinition.name, method: 'POST', url: url });
+        routesService.storeRoute({ model: modelDefinition.name, name: 'Add', method: 'POST', url: url });
     }
 
     methods.update = () => {
@@ -52,7 +52,7 @@ module.exports = (app, passport, modelDefinition, model) => {
                     .then(obj => res.send(obj))
                     .catch(error => console.log(error));
             });
-        routesService.storeRoute({ model: modelDefinition.name, method: 'PUT', url: url });
+        routesService.storeRoute({ model: modelDefinition.name, name: 'Update', method: 'PUT', url: url });
     }
 
     methods.remove = () => {
@@ -64,7 +64,7 @@ module.exports = (app, passport, modelDefinition, model) => {
                     .then(obj => res.send(obj))
                     .catch(error => console.log(error));
             });
-        routesService.storeRoute({ model: modelDefinition.name, method: 'DELETE', url: url });
+        routesService.storeRoute({ model: modelDefinition.name, name: 'Remove', method: 'DELETE', url: url });
     }
 
     for (const method in modelDefinition.methods) {

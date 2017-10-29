@@ -1,5 +1,6 @@
 const utilService = require('./util.service');
 const modelsService = require('./models.service');
+const postmanService = require('./postman.service');
 
 const service = { routes: {} };
 
@@ -8,6 +9,7 @@ service.createRoutes = (app, passport, modelDefinitions) => {
         createRoutes(app, passport, md);
     });
     service.printRoutes();
+    postmanService.generate(service.routes);
 }
 
 service.storeRoute = (route) => {

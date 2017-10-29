@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-  secret: 'node-express-mongodb.api',
+  secret: process.env.APP_NAME,
   resave: true,
   saveUninitialized: true
 }));
