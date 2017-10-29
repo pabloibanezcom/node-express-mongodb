@@ -1,8 +1,9 @@
 // load all the things we need
 const FacebookTokenStrategy = require('passport-facebook-token');
+const modelsService = require('../services/models.service');
 
 // load up the user model
-const User = require('../models/user');
+const User = modelsService.getModel('User');
 
 // expose this function to our app using module.exports
 module.exports = function (passport) {

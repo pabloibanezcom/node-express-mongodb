@@ -1,64 +1,76 @@
 const dbService = require('../services/db/default.service');
+const routesService = require('../services/routes.service');
 
 module.exports = (app, passport, modelDefinition, model) => {
+
+    const urlBase = '/api/' + modelDefinition.route;
 
     const methods = {};
 
     methods.getAll = () => {
-        app.get('/api/' + modelDefinition.route,
-        // passport.authenticate('admin'),
-        (req, res) => {
-            dbService.getAll()
-                .then(collection => res.send(collection))
-                .catch(error => console.log(error));
-        });
+        const url = urlBase;
+        app.get(url,
+            // passport.authenticate('admin'),
+            (req, res) => {
+                dbService.getAll(model)
+                    .then(collection => res.send(collection))
+                    .catch(error => console.log(error));
+            });
+        routesService.storeRoute({ model: modelDefinition.name, method: 'GET', url: url });
     }
 
     methods.get = () => {
-        app.get('/api/' + modelDefinition.route + '/:id',
-        // passport.authenticate('admin'),
-        (req, res) => {
-            dbService.get(req.param('id'))
-                .then(obj => res.send(obj))
-                .catch(error => console.log(error));
-        });
+        const url = urlBase;
+        app.get(url,
+            // passport.authenticate('admin'),
+            (req, res) => {
+                dbService.get(model, req.param('id'))
+                    .then(obj => res.send(obj))
+                    .catch(error => console.log(error));
+            });
+        routesService.storeRoute({ model: modelDefinition.name, method: 'GET', url: url });
     }
 
     methods.add = () => {
-        app.post('/api/' + modelDefinition.route,
-        // passport.authenticate('admin'),
-        (req, res) => {
-            dbService.add(req.body, modelDefinition)
-                .then(obj => res.send(obj))
-                .catch(error => console.log(error));
-        });
+        const url = urlBase;
+        app.post(url,
+            // passport.authenticate('admin'),
+            (req, res) => {
+                dbService.add(model, req.body, modelDefinition)
+                    .then(obj => res.send(obj))
+                    .catch(error => console.log(error));
+            });
+        routesService.storeRoute({ model: modelDefinition.name, method: 'POST', url: url });
     }
 
     methods.update = () => {
-        app.put('/api/' + modelDefinition.route + '/:id',
-        // passport.authenticate('admin'),
-        (req, res) => {
-            dbService.update(req.param('id'), req.body, modelDefinition)
-                .then(obj => res.send(obj))
-                .catch(error => console.log(error));
-        });
+        const url = urlBase + '/:id';
+        app.put(url,
+            // passport.authenticate('admin'),
+            (req, res) => {
+                dbService.update(model, req.param('id'), req.body, modelDefinition)
+                    .then(obj => res.send(obj))
+                    .catch(error => console.log(error));
+            });
+        routesService.storeRoute({ model: modelDefinition.name, method: 'PUT', url: url });
     }
 
     methods.remove = () => {
-        app.delete('/api/' + modelDefinition.route + '/:id',
-        // passport.authenticate('admin'),
-        (req, res) => {
-            dbService.remove(req.param('id'))
-                .then(obj => res.send(obj))
-                .catch(error => console.log(error));
-        });
+        const url = urlBase + '/:id';
+        app.delete(url,
+            // passport.authenticate('admin'),
+            (req, res) => {
+                dbService.remove(model, req.param('id'))
+                    .then(obj => res.send(obj))
+                    .catch(error => console.log(error));
+            });
+        routesService.storeRoute({ model: modelDefinition.name, method: 'DELETE', url: url });
     }
 
-    dbService.setModel(model);
-    for(const method in modelDefinition.methods) {
+    for (const method in modelDefinition.methods) {
         if (modelDefinition.methods[method]) {
             methods[method]();
         }
-    } 
-    
+    }
+
 };

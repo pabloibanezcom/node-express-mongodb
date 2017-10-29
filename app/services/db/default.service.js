@@ -1,20 +1,14 @@
-let Model;
-
 const service = {};
 
-service.setModel = (model) => {
-    Model = model;
+service.getAll = (model) => {
+    return model.find({});
 }
 
-service.getAll = () => {
-    return Model.find({});
+service.get = (model, id) => {
+    return model.findById(id);
 }
 
-service.get = (id) => {
-    return Model.findById(id);
-}
-
-service.add = (obj, modelDefinition) => {
+service.add = (model, obj, modelDefinition) => {
     const objSchema = {};
     for (const prop in obj) {
         if (!(modelDefinition.properties[prop]
@@ -23,11 +17,11 @@ service.add = (obj, modelDefinition) => {
             objSchema[prop] = obj[prop];
         }
     }
-    const newObj = new Model(objSchema);
+    const newObj = new model(objSchema);
     return newObj.save();
 }
 
-service.update = (id, obj, modelDefinition) => {
+service.update = (model, id, obj, modelDefinition) => {
     const updObj = {};
     for (const prop in obj) {
         if (!(modelDefinition.properties[prop]
@@ -36,11 +30,11 @@ service.update = (id, obj, modelDefinition) => {
             updObj[prop] = obj[prop];
         }
     }
-    return Model.findByIdAndUpdate(id, updObj);
+    return model.findByIdAndUpdate(id, updObj);
 }
 
-service.remove = (id) => {
-    return Model.findByIdAndRemove(id);
+service.remove = (model, id) => {
+    return model.findByIdAndRemove(id);
 }
 
 module.exports = service;

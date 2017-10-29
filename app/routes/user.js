@@ -1,13 +1,16 @@
-const userService = require('../services/user.service');
+const userService = require('../services/db/user.service');
+const routesService = require('../services/routes.service');
 
 module.exports = (app, passport) => {
-    app.get('/api/user',
+    const url = '/api/user';
+    app.get(url,
         passport.authenticate('facebook-token'),
         (req, res) => {
             userService.getUser(req)
                 .then(users => processResponse(res, users[0]))
                 .catch(error => console.log(error));
         });
+    routesService.storeRoute({ model: 'User', method: 'GET', url: url });
 
     const processResponse = (res, result) => {
         if (result) {

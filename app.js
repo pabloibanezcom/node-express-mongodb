@@ -8,11 +8,13 @@ const flash = require('connect-flash');
 const session = require('express-session');
 
 require('dotenv').load();
-require('./app/passport/passport')(passport); 
 const mongoose = require('./app/mongoose.js');
 const util = require('./app/services/util.service');
 const app = express();
 const modelDefinitions = util.getModelDefinitions();
+const modelsService = require('./app/services/models.service');
+modelsService.generateModels(modelDefinitions);
+require('./app/passport/passport')(passport); 
 
 app.use(cors());
 app.use(bodyParser.json());

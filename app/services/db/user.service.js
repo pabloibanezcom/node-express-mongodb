@@ -1,5 +1,6 @@
 // load up the user model
-const User = require('../models/user');
+const modelsService = require('../models.service');
+const User = modelsService.getModel('User');
 
 const userService = {};
 
