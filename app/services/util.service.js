@@ -24,4 +24,14 @@ service.getModelDefinitions = () => {
     return models;
 }
 
+service.getExampleDataForType = (type) => {
+    if (type.toLowerCase() === 'string') {
+        return '';
+    }
+    if (type.toLowerCase() === 'number') {
+        return 0;
+    }
+    return null;
+}
+
 module.exports = service;

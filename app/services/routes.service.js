@@ -9,7 +9,7 @@ service.createRoutes = (app, passport, modelDefinitions) => {
         createRoutes(app, passport, md);
     });
     service.printRoutes();
-    postmanService.generate(service.routes);
+    postmanService.generate(service.routes, modelDefinitions);
 }
 
 service.storeRoute = (route) => {
