@@ -19,10 +19,10 @@
         }
     },
     "methods": {
-        "getAll": true,
-        "get": true,
-        "add": true,
-        "update": true,
-        "remove": true
+        "getAll": { "enabled": true },
+        "get": { "enabled": true, "passportStrategy": "admin" },
+        "add": { "enabled": true },
+        "update": { "enabled": true },
+        "remove": { "enabled": true }
     }
 }

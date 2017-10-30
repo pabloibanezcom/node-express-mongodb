@@ -13,7 +13,7 @@
         }
     },
     "methods": {
-        "getAll": true,
-        "get": true
+        "getAll": { "enabled": true },
+        "get": { "enabled": true }
     }
 }

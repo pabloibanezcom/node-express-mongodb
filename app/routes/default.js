@@ -10,7 +10,7 @@ module.exports = (app, passport, modelDefinition, model) => {
     methods.getAll = () => {
         const url = urlBase;
         app.get(url,
-            // passport.authenticate('admin'),
+            getAuthCallback('getAll'),
             (req, res) => {
                 dbService.getAll(model)
                     .then(collection => res.send(collection))
@@ -22,7 +22,7 @@ module.exports = (app, passport, modelDefinition, model) => {
     methods.get = () => {
         const url = urlBase + '/:id';
         app.get(url,
-            // passport.authenticate('admin'),
+            getAuthCallback('get'),
             (req, res) => {
                 dbService.get(model, req.param('id'))
                     .then(obj => res.send(obj))
@@ -34,7 +34,7 @@ module.exports = (app, passport, modelDefinition, model) => {
     methods.add = () => {
         const url = urlBase;
         app.post(url,
-            // passport.authenticate('admin'),
+            getAuthCallback('add'),
             (req, res) => {
                 dbService.add(model, req.body, modelDefinition)
                     .then(obj => res.send(obj))
@@ -46,7 +46,7 @@ module.exports = (app, passport, modelDefinition, model) => {
     methods.update = () => {
         const url = urlBase + '/:id';
         app.put(url,
-            // passport.authenticate('admin'),
+            getAuthCallback('update'),
             (req, res) => {
                 dbService.update(model, req.param('id'), req.body, modelDefinition)
                     .then(obj => res.send(obj))
@@ -58,7 +58,7 @@ module.exports = (app, passport, modelDefinition, model) => {
     methods.remove = () => {
         const url = urlBase + '/:id';
         app.delete(url,
-            // passport.authenticate('admin'),
+            getAuthCallback('remove'),
             (req, res) => {
                 dbService.remove(model, req.param('id'))
                     .then(obj => res.send(obj))
@@ -67,8 +67,19 @@ module.exports = (app, passport, modelDefinition, model) => {
         routesService.storeRoute({ model: modelDefinition.name, name: 'Remove', method: 'DELETE', url: url });
     }
 
+    const notAuthFunc = (accessToken, refreshToken, profile, done) => {
+        return true;
+    }
+
+    const getAuthCallback = (method) => {
+        if (modelDefinition.methods[method].passportStrategy) {
+            return passport.authenticate(modelDefinition.methods[method].passportStrategy);
+        }
+        return notAuthFunc;
+    }
+
     for (const method in modelDefinition.methods) {
-        if (modelDefinition.methods[method]) {
+        if (modelDefinition.methods[method].enabled) {
             methods[method]();
         }
     }
