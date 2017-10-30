@@ -2,11 +2,8 @@
 
 This project allows you to create a powerful REST API in a very short time. It relies on 
 
-* [NodeJS](https://nodejs.org/en/)
-* [Express](https://expressjs.com/)
-* [MongoDB](https://www.mongodb.com/)
-* [Mongoose](http://mongoosejs.com/)
-* [PassportJS](http://www.passportjs.org/)
+[NodeJS](https://nodejs.org/en/) | [Express](https://expressjs.com/)
+| [MongoDB](https://www.mongodb.com/) | [Mongoose](http://mongoosejs.com/) | [PassportJS](http://www.passportjs.org/)
 
 This is not a NPM package. It is a skeleton app so we need to clone it.
 
@@ -37,11 +34,27 @@ The way it generates the API is by reading each of the model definitions at `./a
 
 Once the app is started it generates all the routes based on them.
 
+### Default routes
+
+There are 5 default routes. These are created if they are activated in the model.
+
+Route  | Description 
+---       | ---
+GET api/[modelRoute] | Returns all the documents
+GET api/[modelRoute]/:id | Returns one document
+POST api/[modelRoute] | Creates one document
+PUT api/[modelRoute]/:id | Updates one document
+DELETE api/[modelRoute]/:id | Remove one document 
+
+### Custom routes
+
+It is possible to create custom routes. For this you have to add a route file to `./app/routes` and the service to use to `./app/services`. Both files must be named as the route in  modeldefinition.
+
 ## Authentication
 
 It is possible to add authentication to the routes by PassportJS. The way to do this is by defining the `passportStrategy`in the method object:
 
-`"methods": {"get": { "enabled": true, "passportStrategy": "admin" },}`
+`"methods": {"get": { "enabled": true, "passportStrategy": "admin" }}`
 
 **[!]** Note that in this case admin strategy would need to be defined in passport.js
 
