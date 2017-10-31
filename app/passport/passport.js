@@ -1,12 +1,11 @@
 // load all the things we need
 const FacebookTokenStrategy = require('passport-facebook-token');
-const modelsService = require('../services/models.service');
 
 // load up the user model
-const User = modelsService.getModel('User');
+const User = require('./user');;
 
 // expose this function to our app using module.exports
-module.exports = function (passport) {
+module.exports = (passport) => {
 
     passport.serializeUser(function (user, done) {
         done(null, user);

@@ -3,18 +3,11 @@ const cors = require('cors')
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const passport = require('passport');
-const flash = require('connect-flash');
 const session = require('express-session');
+const passport = require('passport');
 
 require('dotenv').load();
-const mongoose = require('./app/mongoose.js');
-const util = require('./app/services/util.service');
 const app = express();
-const modelDefinitions = util.getModelDefinitions();
-const modelsService = require('./app/services/models.service');
-modelsService.generateModels(modelDefinitions);
-require('./app/passport/passport')(passport); 
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -26,10 +19,21 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
-app.use(passport.initialize());
-app.use(passport.session()); 
-app.use(flash()); 
 
-require('./app/routes.js')(app, passport, modelDefinitions);
+const options = {
+  app_name: process.env.APP_NAME,
+  host: process.env.HOST,
+  port: process.env.PORT,
+  mongodb_uri: process.env.MONGODB_URI,
+  passport_path: './app/passport/passport.js',
+  models_path: './app/models',
+  data_path: './app/data'
+};
+
+require('./app/passport/passport')(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./index')(app, options, passport);
 
 module.exports = app;
