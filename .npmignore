@@ -1,0 +1,20 @@
+README.md
+app/
+bin/
+.env
+app.js
+
+# Mac OS X
+.DS_Store
+
+# Node.js
+.npmignore
+node_modules/
+npm-debug.log
+
+# Git
+.git*
+
+#VSCode
+.vscode/
+

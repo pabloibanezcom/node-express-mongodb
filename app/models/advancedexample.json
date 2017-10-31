@@ -10,10 +10,25 @@
         },
         "property12": {
             "type": "Number"
+        },
+        "basicExample": {
+            "type": "BasicExample",
+            "populate": {
+                "getAll": true,
+                "get": true
+            }
+        },
+        "otherExample": {
+            "type": "BasicExample",
+            "populate": {
+                "getAll": false,
+                "get": true
+            }
         }
     },
     "methods": {
         "getAll": { "enabled": true },
-        "get": { "enabled": true }
+        "get": { "enabled": true },
+        "add": { "enabled": true }
     }
 }
