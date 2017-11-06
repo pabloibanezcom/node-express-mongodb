@@ -5,6 +5,10 @@ module.exports = (app, options, passport) => {
     // Initialize mongoose and DB
     require('./lib/mongoose.js')(options.mongodb_uri);
 
+    if (options.root_path) {
+        util.setRootPath(options.root_path);
+    }
+
     // Initialize passport
     if(passport) {
         const passportService = require('./lib/services/passport.service');

@@ -27,7 +27,7 @@
         }
     },
     "methods": {
-        "getAll": { "enabled": true },
+        "getAll": { "enabled": true},
         "get": { "enabled": true },
         "add": { "enabled": true }
     }

@@ -21,5 +21,7 @@
             "type": "Date"
         }
     },
-    "methods": {}
+    "methods": {
+        "get": { "enabled": true }
+    }
 }
