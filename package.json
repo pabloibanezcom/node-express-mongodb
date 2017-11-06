@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/pabloibanezcom/node-express-mongodb"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "keywords": ["express", "api", "REST", "mongodb", "mongoose"],
   "private": false,
   "scripts": {
