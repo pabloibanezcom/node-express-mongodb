@@ -5,32 +5,83 @@ This project allows you to create a powerful REST API in a very short time. It r
 [NodeJS](https://nodejs.org/en/) | [Express](https://expressjs.com/)
 | [MongoDB](https://www.mongodb.com/) | [Mongoose](http://mongoosejs.com/) | [PassportJS](http://www.passportjs.org/)
 
-This is not a NPM package. It is a skeleton app so we need to clone it.
+<!-- Badges section here. -->
+
+[![npm](https://img.shields.io/npm/v/node-express-mongodb.svg)][npm-badge-url]
+[![npm](https://img.shields.io/npm/l/node-express-mongodb.svg)][npm-badge-url]
+[![npm](https://david-dm.org/pabloibanezcom/node-express-mongodb/status.svg)][david-dependency-url]
+
+[![GitHub forks](https://img.shields.io/github/forks/pabloibanezcom/node-express-mongodb.svg?style=social&label=Fork)](https://github.com/pabloibanezcom/node-express-mongodb/fork)
+[![GitHub stars](https://img.shields.io/github/stars/pabloibanezcom/node-express-mongodb.svg?style=social&label=Star)](https://github.com/pabloibanezcom/node-express-mongodb)
 
 ## Table of Contents
 
-* [Setting up](#setting-up)
+* [Instalation](#instalation)
 * [Usage](#usage)
 * [Authentication](#authentication)
 * [Data generation](#data-generation)
 * [Postman project generation](#postman-project-generation)
+* [License](#license)
 
-## Setting up
+## Instalation
 
-First of all we need to set up the environment variables by creating .env file in root.
-
-Key  | Description 
----       | ---
-APP_NAME | Name of the application 
-HOST | Host url. *Only for Postman purposes (optional)*
-PORT | Port number. *Only for Postman purposes (optional)*
-MONGODB_URI | MongoDB database URI
-FB_APP_KEY | Facebook app key for authentication *(optional)*
-FB_APP_SECRET | Facebook secret key for authentication *(optional)*
+```bash
+npm install node-express-mongodb --save
+```
 
 ## Usage
 
-The way it generates the API is by reading each of the model definitions at `./app/models`. We need to create (and likely delete the existing examples) one definition for each of the models in our app.
+Once express application is created we need to instantiate node-express-mongodb:
+
+```bash
+require('node-express-mongodb')(app, options, passport);
+```
+
+### Options
+
+Key  | Description 
+---       | ---
+APP_NAME | Name of the application
+MONGODB_URI | MongoDB database URI
+HOST | Host url. *Only for Postman purposes (optional)*
+PORT | Port number. *Only for Postman purposes (optional)*
+MODELS_PATH | Path where the models are located. *Default: `./app/models`* *(optional)*
+DATA_PATH | Path where data for generation is located. *Default: `./app/data`* *(optional)*
+
+### Models
+
+The way it generates the API is by reading each of the model definitions at models path. We need to create one definition for each of the models in our app. This needs to be a json similar to the one below:
+
+```bash
+{
+    "name": "BasicExample",
+    "route": "basicexample",
+    "properties": {
+        "property1": {
+            "type": "String"
+        },
+        "property2": {
+            "type": "String",
+            "methodsNotAllowed": {
+                "update": true
+            }
+        },
+        "property3": {
+            "type": "Number",
+            "methodsNotAllowed": {
+                "add": true
+            }
+        }
+    },
+    "methods": {
+        "getAll": { "enabled": true },
+        "get": { "enabled": true, "passportStrategy": "admin" },
+        "add": { "enabled": true },
+        "update": { "enabled": true },
+        "remove": { "enabled": true }
+    }
+}
+```
 
 Once the app is started it generates all the routes based on them.
 
@@ -73,4 +124,12 @@ All you have to do in Postman is
 *Import > Import From Link* and copying the follow app endpoint:
 
 ***/api/postman***
+
+## License
+
+MIT
+
+
+[npm-badge-url]: https://www.npmjs.com/package/node-express-mongodb
+[david-dependency-url]: https://david-dm.org/pabloibanezcom/node-express-mongodb
 

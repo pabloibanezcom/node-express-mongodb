@@ -1,6 +1,7 @@
 {
   "name": "node-express-mongodb",
   "author": "Pablo Ibanez",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/pabloibanezcom/node-express-mongodb"
