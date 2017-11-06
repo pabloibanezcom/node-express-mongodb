@@ -25,7 +25,7 @@ const options = {
   host: process.env.HOST,
   port: process.env.PORT,
   mongodb_uri: process.env.MONGODB_URI,
-  passport_path: './app/passport/passport.js',
+  root_path: '../../',
   models_path: './app/models',
   data_path: './app/data'
 };

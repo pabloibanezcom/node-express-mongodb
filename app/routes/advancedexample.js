@@ -1,5 +1,4 @@
 const service = require('../services/advancedexample.service');
-const routesService = require('../../lib/services/routes.service');
 
 module.exports = (app, model) => {
     const url = '/api/advancedexample/custom/custom';
@@ -9,5 +8,5 @@ module.exports = (app, model) => {
                 .then(result => res.send(result))
                 .catch(error => console.log(error));
         });
-    routesService.storeRoute({ model: 'AdvancedExample', name: 'Custom',  method: 'GET', url: url });
+    app.routesInfo['AdvancedExample'].push({ model: 'AdvancedExample', name: 'Custom',  method: 'GET', url: url });
 };
