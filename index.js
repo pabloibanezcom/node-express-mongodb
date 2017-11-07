@@ -9,6 +9,9 @@ module.exports = (app, options, passport) => {
         util.setRootPath(options.root_path);
     }
 
+    options.models_path = options.models_path ? options.models_path : './app/models';
+    options.data_path = options.data_path ? options.data_path : './app/data';
+
     // Initialize passport
     if(passport) {
         const passportService = require('./lib/services/passport.service');

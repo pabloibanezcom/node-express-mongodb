@@ -2,16 +2,34 @@
     {
         "property45": "GH",
         "property27": "MX",
-        "property12": 5678
+        "property12": 5678,
+        "basicExample": {
+            "property1": "A"
+        },
+        "otherExample": {
+            "property1": "C"
+        }
     },
     {
         "property45": "ES",
         "property27": "FR",
-        "property12": 4578
+        "property12": 4578,
+        "basicExample": {
+            "property1": "A"
+        },
+        "otherExample": {
+            "property1": "A"
+        }
     },
     {
         "property45": "DE",
         "property27": "UK",
-        "property12": 564
+        "property12": 564,
+        "basicExample": {
+            "property1": "C"
+        },
+        "otherExample": {
+            "property1": "C"
+        }
     }
 ]
