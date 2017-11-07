@@ -9,7 +9,7 @@ module.exports = (app, options, passport) => {
         util.setRootPath(options.root_path);
     }
 
-    options.models_path = options.models_path ? options.models_path : './app/models';
+    options.models_path = options.models_path ? options.models_path : './app';
     options.data_path = options.data_path ? options.data_path : './app/data';
 
     // Initialize passport
@@ -22,6 +22,6 @@ module.exports = (app, options, passport) => {
     const modelDefinitions = util.getModelDefinitions(options.models_path);
 
     // Generate routes
-    modelsService.generateModels(modelDefinitions, options)
+    modelsService.generateModels(util.modelDefinitionsSingleLevel(modelDefinitions), options)
     const routes = require('./lib/routes')(app, modelDefinitions, options);
 };

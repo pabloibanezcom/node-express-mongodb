@@ -1,0 +1,28 @@
+{
+    "name": "Example4",
+    "route": "example4",
+    "properties": {
+        "property1": {
+            "type": "String"
+        },
+        "property2": {
+            "type": "String",
+            "methodsNotAllowed": {
+                "update": true
+            }
+        },
+        "property3": {
+            "type": "Number",
+            "methodsNotAllowed": {
+                "add": true
+            }
+        }
+    },
+    "methods": {
+        "getAll": { "enabled": true },
+        "get": { "enabled": true, "passportStrategy": "admin" },
+        "add": { "enabled": true },
+        "update": { "enabled": true },
+        "remove": { "enabled": true }
+    }
+}
