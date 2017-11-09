@@ -24,10 +24,11 @@ module.exports = (app, options) => {
 
     // Initialize passport
     const passport_path = options.passport_path ? options.passport_path : './lib/auth/passport';
-    require(passport_path)(passport, modelsService.getModel('User'));
+    const token_key = options.token_key ? options.token_key : 'NO_KEY_51';
+    require(passport_path)(passport, modelsService.getModel('User'), token_key);
     app.use(passport.initialize());
     app.use(passport.session());
-
+    
     // Generate routes
     const routes = require('./lib/routes')(app, modelDefinitions, options, passport);
 };

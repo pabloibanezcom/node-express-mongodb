@@ -22,7 +22,8 @@
   "dependencies": {
     "express": "4.16.2",
     "jsonwebtoken": "^8.1.0",
-    "mongoose": "4.13.0"
+    "mongoose": "4.13.0",
+    "passport-jwt": "^3.0.1"
   },
   "devDependencies": {
     "bcrypt-nodejs": "0.0.3",

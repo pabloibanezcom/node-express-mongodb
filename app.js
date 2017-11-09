@@ -23,6 +23,7 @@ app.use(flash());
 
 const options = {
   app_name: process.env.APP_NAME,
+  token_key: process.env.TOKEN_KEY,
   host: process.env.HOST,
   mongodb_uri: process.env.MONGODB_URI,
   root_path: '../../'

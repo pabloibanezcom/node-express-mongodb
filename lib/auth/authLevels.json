@@ -1,0 +1,22 @@
+[
+    {
+        "name": "public",
+        "methods": {
+            "getAll": { "enabled": true, "passportStrategy": "admin" },
+            "get": { "enabled": true, "passportStrategy": "public" },
+            "add": { "enabled": true, "passportStrategy": "admin" },
+            "update": { "enabled": true, "passportStrategy": "admin" },
+            "remove": { "enabled": true, "passportStrategy": "admin" }
+        }
+    },
+    {
+        "name": "userOwner",
+        "methods": {
+            "getAll": { "enabled": true, "passportStrategy": "user" },
+            "get": { "enabled": true, "passportStrategy": "user" },
+            "add": { "enabled": true, "passportStrategy": "user" },
+            "update": { "enabled": true, "passportStrategy": "user" },
+            "remove": { "enabled": true, "passportStrategy": "user" }
+        }
+    }
+]
