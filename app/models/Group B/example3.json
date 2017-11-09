@@ -1,6 +1,7 @@
 {
     "name": "Example3",
     "route": "example3",
+    "public": true,
     "properties": {
         "property1": {
             "type": "String"

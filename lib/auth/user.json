@@ -1,0 +1,45 @@
+{
+    "name": "User",
+    "route": "user",
+    "properties": {
+        "name": {
+            "type": "String"
+        },
+        "photo": {
+            "type": "String"
+        },
+        "registrationDate": {
+            "type": "Date"
+        },
+        "lastAccessDate": {
+            "type": "Date"
+        },
+        "local": {
+            "email": {
+                "type": "String"
+            },
+            "password": {
+                "type": "String"
+            }
+        },
+        "facebook": {
+            "id": {
+                "type": "String"
+            },
+            "token": {
+                "type": "String"
+            },
+            "email": {
+                "type": "String"
+            },
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "methods": {
+        "get": {
+            "enabled": true
+        }
+    }
+}

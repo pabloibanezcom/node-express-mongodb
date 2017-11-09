@@ -1,0 +1,22 @@
+{
+    "url": "/api/login",
+    "custom_request": {
+        "header": [],
+        "body": {
+            "mode": "raw",
+            "raw": ""
+        },
+        "url": {
+            "query": [
+                {
+                    "key": "email",
+                    "value": ""
+                },
+                {
+                    "key": "password",
+                    "value": ""
+                }
+            ]
+        }
+    } 
+}

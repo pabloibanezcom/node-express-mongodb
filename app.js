@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const passport = require('passport');
+const flash = require('connect-flash');
 
 require('dotenv').load();
 const app = express();
@@ -19,19 +19,15 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
+app.use(flash());
 
 const options = {
   app_name: process.env.APP_NAME,
   host: process.env.HOST,
-  port: process.env.PORT,
   mongodb_uri: process.env.MONGODB_URI,
   root_path: '../../'
 };
 
-require('./app/passport/passport')(passport);
-app.use(passport.initialize());
-app.use(passport.session());
-
-require('./index')(app, options, passport);
+require('./index')(app, options);
 
 module.exports = app;

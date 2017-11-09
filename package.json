@@ -7,7 +7,13 @@
     "url": "https://github.com/pabloibanezcom/node-express-mongodb"
   },
   "version": "1.0.4",
-  "keywords": ["express", "api", "REST", "mongodb", "mongoose"],
+  "keywords": [
+    "express",
+    "api",
+    "REST",
+    "mongodb",
+    "mongoose"
+  ],
   "private": false,
   "scripts": {
     "start": "node ./bin/www"
@@ -15,6 +21,7 @@
   "main": "./index.js",
   "dependencies": {
     "express": "4.16.2",
+    "jsonwebtoken": "^8.1.0",
     "mongoose": "4.13.0"
   },
   "devDependencies": {
@@ -27,7 +34,8 @@
     "passport": "^0.4.0",
     "passport-facebook": "2.1.1",
     "passport-facebook-token": "3.3.0",
-    "passport-local": "1.0.0"
+    "passport-local": "1.0.0",
+    "connect-flash": "^0.1.1"
   },
   "engines": {
     "node": "7.7.0",
