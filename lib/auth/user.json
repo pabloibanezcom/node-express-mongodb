@@ -1,6 +1,7 @@
 {
     "name": "User",
     "route": "user",
+    "authLevel": "user",
     "properties": {
         "name": {
             "type": "String"
@@ -38,11 +39,6 @@
             "name": {
                 "type": "String"
             }
-        }
-    },
-    "methods": {
-        "get": {
-            "enabled": true
         }
     }
 }

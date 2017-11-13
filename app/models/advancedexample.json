@@ -1,6 +1,7 @@
 {
     "name": "AdvancedExample",
     "route": "advancedexample",
+    "authLevel": "userOwner",
     "properties": {
         "property45": {
             "type": "String"
@@ -27,8 +28,6 @@
         }
     },
     "methods": {
-        "getAll": { "enabled": true},
-        "get": { "enabled": true },
-        "add": { "enabled": true }
+        "remove": { "enabled": false }
     }
 }

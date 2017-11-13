@@ -1,7 +1,7 @@
 {
     "name": "Example1",
     "route": "example1",
-    "public": true,
+    "authLevel": "userOwner",
     "properties": {
         "property1": {
             "type": "String"
@@ -18,12 +18,5 @@
                 "add": true
             }
         }
-    },
-    "methods": {
-        "getAll": { "enabled": true },
-        "get": { "enabled": true, "passportStrategy": "admin" },
-        "add": { "enabled": true },
-        "update": { "enabled": true },
-        "remove": { "enabled": true }
     }
 }
