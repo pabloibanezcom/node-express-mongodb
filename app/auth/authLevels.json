@@ -1,0 +1,12 @@
+[
+    {
+        "name": "custom",
+        "methods": {
+            "getAll": { "enabled": true, "method": "GET", "url_append": "", "passportStrategy": "public" },
+            "get": { "enabled": true, "method": "GET", "url_append": "/:id", "passportStrategy": "public" },
+            "add": { "enabled": true, "method": "POST", "url_append": "", "passportStrategy": "admin" },
+            "update": { "enabled": true, "method": "PUT", "url_append": "/:id", "passportStrategy": "admin" },
+            "remove": { "enabled": true, "method": "DELETE", "url_append": "/:id", "passportStrategy": "admin" }
+        }
+    }
+]

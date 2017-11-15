@@ -15,14 +15,14 @@
         "basicExample": {
             "type": "BasicExample",
             "populate": {
-                "getAll": true,
+                "search": true,
                 "get": true
             }
         },
         "otherExample": {
             "type": "BasicExample",
             "populate": {
-                "getAll": false,
+                "search": false,
                 "get": true
             }
         }

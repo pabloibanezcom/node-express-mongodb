@@ -27,7 +27,8 @@ const options = {
   host: process.env.HOST,
   mongodb_uri: process.env.MONGODB_URI,
   root_path: '../../',
-  example_users: require('./app/auth/example_users')
+  exampleUsers: require('./app/auth/exampleUsers'),
+  authLevels: require('./app/auth/authLevels')
 };
 
 require('./index')(app, options);

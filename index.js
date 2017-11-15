@@ -1,6 +1,7 @@
 const passport = require('passport');
 const util = require('./lib/services/util.service');
 const modelsService = require('./lib/services/models.service');
+const authService = require('./lib/services/auth.service');
 
 module.exports = (app, options) => {
     // Initialize mongoose and DB
@@ -12,6 +13,9 @@ module.exports = (app, options) => {
 
     options.models_path = options.models_path ? options.models_path : './app';
     options.data_path = options.data_path ? options.data_path : './app/data';
+
+    // Initialize authService with authLevels
+    authService.init(options.authLevels);
 
     // Get model definitions
     const modelDefinitions = util.modelDefinitionsSingleLevel(util.getModelDefinitions(options.models_path));
