@@ -20,17 +20,18 @@
   },
   "main": "./index.js",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "express": "4.16.2",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "4.13.0",
-    "passport-jwt": "^3.0.1",
+    "mongoose-geojson-schema": "^2.1.2",
     "passport": "^0.4.0",
     "passport-facebook": "2.1.1",
     "passport-facebook-token": "3.3.0",
-    "passport-local": "1.0.0",
-    "bcrypt-nodejs": "0.0.3"
+    "passport-jwt": "^3.0.1",
+    "passport-local": "1.0.0"
   },
-  "devDependencies": {  
+  "devDependencies": {
     "body-parser": "1.18.2",
     "cookie-parser": "1.4.3",
     "cors": "2.8.4",

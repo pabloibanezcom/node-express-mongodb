@@ -2,8 +2,9 @@ const passport = require('passport');
 const util = require('./lib/services/util.service');
 const modelsService = require('./lib/services/models.service');
 const authService = require('./lib/services/auth.service');
+const geoService = require('./lib/services/geo.service');
 
-module.exports = (app, options) => {
+const init = (app, options) => {
     // Initialize mongoose and DB
     require('./lib/mongoose.js')(options.mongodb_uri);
 
@@ -32,7 +33,13 @@ module.exports = (app, options) => {
     require(passport_path)(passport, modelsService.getModel('User'), token_key);
     app.use(passport.initialize());
     app.use(passport.session());
-    
+
     // Generate routes
     const routes = require('./lib/routes')(app, modelDefinitions, options, passport);
+}
+
+module.exports =  {
+    init: init,
+    getModel: modelsService.getModel,
+    geo: geoService
 };

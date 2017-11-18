@@ -1,0 +1,12 @@
+[
+    "point",
+    "multipoint",
+    "linestring",
+    "multiLinestring",
+    "polygon",
+    "multipolygon",
+    "geometry",
+    "geometrycollection",
+    "feature",
+    "featurecollection"
+]

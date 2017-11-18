@@ -31,6 +31,7 @@ const options = {
   authLevels: require('./app/auth/authLevels')
 };
 
-require('./index')(app, options);
+const generator = require('./index');
+generator.init(app, options);
 
 module.exports = app;

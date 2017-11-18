@@ -1,0 +1,10 @@
+[
+    "string",
+    "number",
+    "date",
+    "buffer",
+    "boolean",
+    "mixed",
+    "objectid",
+    "array"
+]
