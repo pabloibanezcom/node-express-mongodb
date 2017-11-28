@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/pabloibanezcom/node-express-mongodb"
   },
-  "version": "1.0.7",
+  "version": "1.0.10",
   "keywords": [
     "express",
     "api",
@@ -24,7 +24,6 @@
     "express": "4.16.2",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "4.13.0",
-    "mongoose-geojson-schema": "^2.1.2",
     "passport": "^0.4.0",
     "passport-facebook": "2.1.1",
     "passport-facebook-token": "3.3.0",
