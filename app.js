@@ -7,7 +7,10 @@ const session = require('express-session');
 const flash = require('connect-flash');
 
 require('dotenv').load();
+
 const app = express();
+
+require('express-async-await')(app);
 
 app.use(cors());
 app.use(bodyParser.json());
