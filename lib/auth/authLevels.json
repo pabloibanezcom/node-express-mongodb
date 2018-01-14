@@ -1,5 +1,9 @@
 [
     {
+        "name": "none",
+        "methods": {}
+    },
+    {
         "name": "public",
         "methods": {
             "getAll": { "enabled": true, "method": "GET", "url_append": "", "passportStrategy": "public" },
