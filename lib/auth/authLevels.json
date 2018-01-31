@@ -6,9 +6,8 @@
     {
         "name": "public",
         "methods": {
-            "getAll": { "enabled": true, "method": "GET", "url_append": "", "passportStrategy": "public" },
-            "get": { "enabled": true, "method": "GET", "url_append": "/:id", "passportStrategy": "public" },
-            "search": { "enabled": true, "method": "POST", "url_append": "/search", "passportStrategy": "public" },
+            "search": { "enabled": true, "method": "POST", "url_append": "", "passportStrategy": "public" },
+            "get": { "enabled": true, "method": "GET", "url_append": "/:id", "passportStrategy": "public" },   
             "add": { "enabled": true, "method": "POST", "url_append": "", "passportStrategy": "admin" },
             "update": { "enabled": true, "method": "PUT", "url_append": "/:id", "passportStrategy": "admin" },
             "remove": { "enabled": true, "method": "DELETE", "url_append": "/:id", "passportStrategy": "admin" }
@@ -17,7 +16,7 @@
     {
         "name": "userOwner",
         "methods": {
-            "search": { "enabled": true, "method": "POST", "url_append": "/search", "passportStrategy": "user" },
+            "search": { "enabled": true, "method": "POST", "url_append": "", "passportStrategy": "user" },
             "get": { "enabled": true, "method": "GET", "url_append": "/:id", "passportStrategy": "user" },
             "add": { "enabled": true, "method": "POST", "url_append": "", "passportStrategy": "user" },
             "update": { "enabled": true, "method": "PUT", "url_append": "/:id", "passportStrategy": "user" },
@@ -37,7 +36,7 @@
     {
         "name": "user",
         "methods": {
-            "getAll": { "enabled": true, "method": "GET", "url_append": "", "passportStrategy": "admin" },
+            "search": { "enabled": true, "method": "POST", "url_append": "", "passportStrategy": "admin" },
             "get": { "enabled": true, "method": "GET", "url_append": "/:id", "passportStrategy": "public" },
             "add": { "enabled": true, "method": "POST", "url_append": "", "passportStrategy": "admin" },
             "update": { "enabled": true, "method": "PUT", "url_append": "/:id", "passportStrategy": "admin" },
