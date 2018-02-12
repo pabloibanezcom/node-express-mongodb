@@ -15,8 +15,8 @@
         "lastAccessDate": {
             "type": "Date"
         },
-        "isAdmin": {
-            "type": "Boolean"
+        "authLevel": {
+            "type": "String"
         },
         "local": {
             "email": {
