@@ -11,13 +11,13 @@
             "query": [
                 {
                     "key": "email",
-                    "value": ""
+                    "value": "john.adams@gmail.com"
                 },
                 {
                     "key": "password",
-                    "value": ""
+                    "value": "mypassword"
                 }
             ]
         }
-    } 
+    }
 }

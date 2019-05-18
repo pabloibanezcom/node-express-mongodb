@@ -1,10 +1,6 @@
 {
-    "admin": {
-        "email": "admin@gmail.com",
-        "password": "admin1234"
-    },
     "user": {
-        "email": "pablo@gmail.com",
-        "password": "pablo1234"
+        "email": "john.adams@gmail.com",
+        "password": "mypassword"
     }
 }

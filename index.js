@@ -20,14 +20,14 @@ const init = (app, options) => {
     authService.init(options.authLevels);
 
     // Get model definitions
-    let modelDefinitions = util.modelDefinitionsSingleLevel(util.getModelDefinitions(options.models_path));
-    modelDefinitions = modelDefinitionsService.checkRelationships(modelDefinitions);
+    let modelDefinitions = util.modelDefinitionsSingleLevel(util.getModelDefinitions(options.models_path)).filter(md => md.name !== 'User');
 
     // Generate routes
-    const models = modelsService.generateModels(modelDefinitions, options);
-    if (!models.find(m => m.modelName === 'User')) {
-        modelDefinitions.unshift(modelsService.generateUserModel());
-    }
+    modelsService.generateModels(modelDefinitions, options);
+    modelDefinitions.unshift(modelsService.generateUserModel());
+
+    // Generate relationships
+    modelDefinitions = modelDefinitionsService.checkRelationships(modelDefinitions);
 
     // Initialize passport
     const passport_path = options.passport_path ? options.passport_path : './lib/auth/passport';
@@ -40,7 +40,7 @@ const init = (app, options) => {
     const routes = require('./lib/routes')(app, modelDefinitions, options, passport);
 }
 
-module.exports =  {
+module.exports = {
     init: init,
     getModel: modelsService.getModel,
     geo: geoService

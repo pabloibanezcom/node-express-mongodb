@@ -1,12 +1,33 @@
 {
     "name": "User",
     "route": "user",
-    "authLevel": "user",
+    "authLevel": "none",
     "properties": {
-        "name": {
+        "type": {
+            "type": "String"
+        },
+        "firstName": {
+            "type": "String"
+        },
+        "lastName": {
+            "type": "String"
+        },
+        "genre": {
+            "type": "String"
+        },
+        "title": {
             "type": "String"
         },
         "photo": {
+            "type": "String"
+        },
+        "facebookId": {
+            "type": "String"
+        },
+        "twitterId": {
+            "type": "String"
+        },
+        "googleId": {
             "type": "String"
         },
         "registrationDate": {
