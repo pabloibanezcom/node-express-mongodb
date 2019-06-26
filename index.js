@@ -1,6 +1,7 @@
 const passport = require('passport');
 const util = require('./lib/services/util.service');
 const modelsService = require('./lib/services/models.service');
+const utilService = require('./lib/services/util.service');
 const modelDefinitionsService = require('./lib/services/modelDefinitions.service');
 const authService = require('./lib/services/auth.service');
 const geoService = require('./lib/services/geo.service');
@@ -22,7 +23,7 @@ const init = (app, options) => {
     // Get model definitions
     let modelDefinitions = util.modelDefinitionsSingleLevel(util.getModelDefinitions(options.models_path)).filter(md => md.name !== 'User');
 
-    // Generate routes
+    // Generate models
     modelsService.generateModels(modelDefinitions, options);
     modelDefinitions.unshift(modelsService.generateUserModel());
 
@@ -43,5 +44,6 @@ const init = (app, options) => {
 module.exports = {
     init: init,
     getModel: modelsService.getModel,
-    geo: geoService
+    geo: geoService,
+    util: utilService
 };
