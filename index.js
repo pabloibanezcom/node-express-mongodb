@@ -6,7 +6,7 @@ const modelDefinitionsService = require('./lib/services/modelDefinitions.service
 const authService = require('./lib/services/auth.service');
 const geoService = require('./lib/services/geo.service');
 
-const init = (app, options) => {
+const init = (app, options, passportProfiles) => {
     // Initialize mongoose and DB
     require('./lib/mongoose.js')(options.mongodb_uri);
 
@@ -32,8 +32,7 @@ const init = (app, options) => {
 
     // Initialize passport
     const passport_path = options.passport_path ? options.passport_path : './lib/auth/passport';
-    const token_key = options.token_key ? options.token_key : 'NO_KEY_51';
-    require(passport_path)(passport, modelsService.getModel('User'), token_key);
+    require(passport_path)(passport, modelsService.getModel('User'), passportProfiles);
     app.use(passport.initialize());
     app.use(passport.session());
 
