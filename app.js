@@ -28,7 +28,7 @@ const options = {
   app_name: process.env.APP_NAME,
   token_key: process.env.TOKEN_KEY,
   host: process.env.HOST,
-  mongodb_uri: process.env.MONGODB_URI,
+  mongodb_uri: encodeURIComponent(process.env.MONGODB_URI),
   root_path: '../../',
   exampleUsers: require('./app/auth/exampleUsers'),
   authLevels: require('./app/auth/authLevels')
