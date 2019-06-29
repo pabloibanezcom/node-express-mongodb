@@ -6,7 +6,8 @@ const modelDefinitionsService = require('./lib/services/modelDefinitions.service
 const authService = require('./lib/services/auth.service');
 const geoService = require('./lib/services/geo.service');
 
-const init = (app, options, passportProfiles) => {
+const init = (app, options, passportProfiles, customValidations) => {
+
     // Initialize mongoose and DB
     require('./lib/mongoose.js')(options.mongodb_uri);
 
@@ -24,7 +25,7 @@ const init = (app, options, passportProfiles) => {
     let modelDefinitions = util.modelDefinitionsSingleLevel(util.getModelDefinitions(options.models_path)).filter(md => md.name !== 'User');
 
     // Generate models
-    modelsService.generateModels(modelDefinitions, options);
+    modelsService.generateModels(modelDefinitions, options, customValidations);
     modelDefinitions.unshift(modelsService.generateUserModel());
 
     // Generate relationships
