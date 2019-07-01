@@ -11,11 +11,11 @@
             "query": [
                 {
                     "key": "email",
-                    "value": "john.adams@gmail.com"
+                    "value": "admin@gmail.com"
                 },
                 {
                     "key": "password",
-                    "value": "mypassword"
+                    "value": "admin"
                 }
             ]
         }
